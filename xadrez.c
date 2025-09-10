@@ -7,6 +7,7 @@
 int main() {
     
     int bispo = 1, rainha = 1;
+    int movimentoEsquerda = 1;
 
     printf(" Torre se movimentando na horizontal...\n");
     for (int torre = 1; torre <= 5; torre++)
@@ -29,6 +30,19 @@ int main() {
        rainha++;
     } while (rainha <= 8);
     
+    printf("Cavalo se movimentando duas casas para baixo e uma a esquerda...\n");
+    for(int i = 0; i < 2; i++)
+    {
+        printf("Baixo\n");
+        while (i == 1 && movimentoEsquerda > 0)
+        {
+            printf("Esquerda\n");
+            movimentoEsquerda--;
+        }
+        
+        
+    }
+
 
     return 0;
 }
