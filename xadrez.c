@@ -1,48 +1,67 @@
 #include <stdio.h>
 
-// Desafio de Xadrez - MateCheck
-// Este código inicial serve como base para o desenvolvimento do sistema de movimentação das peças de xadrez.
-// O objetivo é utilizar estruturas de repetição e funções para determinar os limites de movimentação dentro do jogo.
+//Uso recursivo para movimenta a torre 5 casas a direita.
+void moverTorre( int casas){
+    if (casas > 0)
+    {
+        printf("Direita\n");
+        moverTorre(casas - 1);
+    }
+}
+// Uso recursivo + loops aninhados para gerar movimento bispo.
+void moverBispo(int casas){
+    for (int i = 0; i < casas; i++)
+    {
+        printf("Cima\n");
+        for (int j = 0; j < 1; j++)
+        {
+            printf("Direita\n");
+        }
+        
+    }
+    
+}
+//Uso recursivo movimentação rainha!
+void moverRainha(int casas){
+    if (casas > 0)
+    {
+        printf("Esquerda\n");
+        moverRainha(casas - 1);
+    }
+}
 
 int main() {
     
-    int bispo = 1, rainha = 1;
-    int movimentoEsquerda = 1;
+    int casas = 5;
+    int casasRainha = 7;
+    int quantidadeCasasCavalo = 3;
+    int movimentosHorizontais = 1;
+    int movimentosVerticais = 2;
 
-    printf(" Torre se movimentando na horizontal...\n");
-    for (int torre = 1; torre <= 5; torre++)
-    {
-        printf("Direita\n"); 
-    }
-    
-    printf(" Bispo se movimentando na diagonal...\n");
-    while (bispo <= 5)
-    {
-        printf("Cima\n");
-        printf("Direita\n");
-        bispo++;
-    }
-    
-    printf("Rainha se movimentando a esquerda...\n");
-    do
-    {
-       printf("Esquerda\n");
-       rainha++;
-    } while (rainha <= 8);
-    
-    printf("Cavalo se movimentando duas casas para baixo e uma a esquerda...\n");
-    for(int i = 0; i < 2; i++)
-    {
-        printf("Baixo\n");
-        while (i == 1 && movimentoEsquerda > 0)
+    printf("Torre se movimentando na horizontal... %d vezes\n", casas);
+    printf("\n");
+    moverTorre(casas);
+    printf("\n");
+
+    printf("Bispo se movimentando na diagonal... %d vezes\n", casas);
+    printf("\n");
+    moverBispo(casas);
+    printf("\n");
+
+    printf("Rainha se movimentando a esquerda... %d vezes\n", casasRainha);
+    printf("\n");
+    moverRainha(casasRainha);
+    printf("\n");
+
+    printf("Cavalo se movimentando em L... %d Casas\n", quantidadeCasasCavalo);
+        for (int i = 0; i < movimentosVerticais; i++)
         {
-            printf("Esquerda\n");
-            movimentoEsquerda--;
+            printf("Cima\n");
+            if (i == movimentosVerticais - 1)
+            {
+            printf("Direita\n");
+            }
         }
-        
-        
-    }
-
 
     return 0;
 }
